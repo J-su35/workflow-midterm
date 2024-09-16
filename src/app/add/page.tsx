@@ -1,3 +1,5 @@
+"use client";
+
 function AddItem() {
     return <div>Add Item</div>;
 }
