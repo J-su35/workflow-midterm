@@ -1,6 +1,8 @@
 import { api } from "../lib/api";
 import { BudgetRequest } from "../models/budget-request";
 
+
+// ---------------Get-----------------------
 interface FetchBudgetItemsResponse {
   data: BudgetRequest[];
 }
@@ -11,7 +13,7 @@ export const fetchBudgetItems = async (): Promise<BudgetRequest[]> => {
   return data;
 };
 
-// -------------------------------------
+// ---------------Post----------------------
 
 interface CreateBudgetItemRequest {
   title: string;
@@ -19,6 +21,7 @@ interface CreateBudgetItemRequest {
   amount: number;
 }
 
+//ส่งผลลัพธ์หลังจาก create ให้แสดงผลทันทีไม่ต้อง refresh หน้า
 interface CreateBudgetItemResponse {
   data: BudgetRequest;
 }
