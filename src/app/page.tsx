@@ -104,7 +104,7 @@ function Home() {
       id: nextId++,
       title: newRequest.title,
       amount: newRequest.amount,
-      quantity: 1,
+      quantity: newRequest.quantity,
       status: "APPROVED",
     });
 
@@ -149,30 +149,42 @@ function Home() {
         </form> */}
         <div className="py-4">
           <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex items-center space-x-4">
-            <label htmlFor="title" className="w-1/6 text-left font-medium">
-              Title:
-            </label>
-            <input
-              id="title"
-              name="title"
-              value={newRequest.title}
-              onChange={updateField}
-              className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
+            <div className="flex items-center space-x-4">
+              <label htmlFor="title" className="w-1/6 text-left font-medium">
+                Title:
+              </label>
+              <input
+                id="title"
+                name="title"
+                value={newRequest.title}
+                onChange={updateField}
+                className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
 
-            <label htmlFor="amount" className="w-1/6 text-left font-medium">
-              Amount:
-            </label>
-            <input
-              id="amount"
-              name="amount"
-              type="number"
-              value={newRequest.amount}
-              onChange={updateField}
-              className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
+              <label htmlFor="amount" className="w-1/6 text-left font-medium">
+                Amount:
+              </label>
+              <input
+                id="amount"
+                name="amount"
+                type="number"
+                value={newRequest.amount}
+                onChange={updateField}
+                className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+
+              <label htmlFor="quantity" className="w-1/6 text-left font-medium">
+                Quantity:
+              </label>
+              <input
+                id="quantity"
+                name="quantity"
+                type="number"
+                value={newRequest.quantity}
+                onChange={updateField}
+                className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
 
             <div className="flex justify-end">
               <button
