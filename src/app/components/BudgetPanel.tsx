@@ -25,7 +25,7 @@ function BudgetPanel({ items }: BudgetPanelProps) {
   const total = 10_000;
   const usedBudget = items
     .filter((request) => request.status === "APPROVED")
-    .map((request) => request.amount)
+    .map((request) => request.amount * request.quantity)
     .reduce((sum, amount) => sum + amount, 0);
 
   const budgetData = [
