@@ -65,6 +65,14 @@ function Home() {
       quantity: 1,
       status: "APPROVED",
     });
+
+    setNewRequest({
+      id: 0,
+      title: "",
+      amount: 0,
+      quantity: 1,
+      status: "PENDING",
+    });
   };
 
   return (
