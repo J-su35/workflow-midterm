@@ -6,57 +6,15 @@ import Header from "./components/Header";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { BudgetRequest } from "./models/budget-request";
 import { createBudgetItem, fetchBudgetItems } from "./services/budget-item";
-// import { ItemInfoContext } from "./layout";
 
 let nextId = 3;
 function Home() {
-  // const [budgetRequests, setBudgetRequests] = useState<BudgetRequest[]>([
-  //   {
-  //     id: 1,
-  //     title: "Monitor",
-  //     amount: 100,
-  //     quantity: 1,
-  //     status: "PENDING",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Ram",
-  //     amount: 200,
-  //     quantity: 1,
-  //     status: "APPROVED",
-  //   },
-  //   // {
-  //   //   id: 3,
-  //   //   title: "CPU",
-  //   //   amount: 300,
-  //   //   quantity: 1,
-  //   //   status: "APPROVED",
-  //   // },
-  // ]);
   const [budgetRequests, setBudgetRequests] = useState<BudgetRequest[]>([]);   //before
-  // const [budgetRequests, setBudgetRequests] = useState<BudgetRequest>();  
-  // const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault()
-  //   setBudgetRequests([
-  //     ...budgetRequests, 
-  //     {
-  //     id: nextId++,
-  //     title: "",
-  //     amount: 0,
-  //     quantity: 1,
-  //     status: "PENDING",
-  //   },
-  // ]);
-  // };
 
   //------------------------Get data---------------------------------
   useEffect(() => {
     fetchBudgetItems().then((items) => setBudgetRequests(items)); //(a) ดึงข้อมูลมาแสดงผล เหมือน (b) recommend
-    // fetchBudgetItems().then((items) => console.log(items)); //log
   }, []);
-  // const addRequest = (newRequest: BudgetRequest) => {
-  //   setBudgetRequests([...budgetRequests, newRequest]);
-  // };
 
    //------------------------Post data---------------------------------
   //new addRequest
@@ -109,9 +67,6 @@ function Home() {
     });
   };
 
-  // const { title, quantity, amount } = useContext(ItemInfoContext);
-  // console.log(title, quantity, amount)
-
   return (
     <div>
       <Header />
@@ -139,64 +94,14 @@ function Home() {
           </div>
           <button>Add</button>
         </form>
-        {/* <FormAddRequest addRequest={addRequest} /> */}
+    
         <div className="mt-4">
           <BudgetRequestDataTable items={budgetRequests} />
         </div>
+
       </main>
     </div>
   );
 }
 
-// interface FormAddRequestProps {
-//   addRequest(request: BudgetRequest): void;
-// }
-
-// function FormAddRequest(props: FormAddRequestProps) {
-//   const [newRequest, setNewRequest] = useState<BudgetRequest>({
-//     id: 0,
-//     title: "",
-//     amount: 0,
-//     quantity: 1,
-//     status: "APPROVED",
-//   });
-
-//   const updateField = (event: ChangeEvent<HTMLInputElement>) => {
-//     const value = 
-//     event.target.type === "number"
-//     ? Number(event.target.value)
-//     : event.target.value;
-//     setNewRequest({
-//         ...newRequest,
-//         [event.target.name]: value,
-//       });
-//   };
-
-  // const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   props.addRequest({
-  //     id: nextId++,
-  //     title: newRequest.title,
-  //     amount: newRequest.amount,
-  //     quantity: 1,
-  //     status: "APPROVED",
-  //   });
-  // };
-
 export default Home;
-
-//---------------------------------------------------------------------------------
-// "use client";
-
-// import DemoUseEffect from "./components/DemoUseEffect";
-
-// function Home() {
-
-//   return (
-//     <div>
-//       <DemoUseEffect />
-//     </div>
-//   );
-// }
-
-// export default Home;

@@ -109,7 +109,3 @@ function EditBudgetRequest() {
 }
 
 export default EditBudgetRequest;
-// function useForm<T>(arg0: { defaultValues: { title: string; quantity: number; amount: number; }; }): { register: any; handleSubmit: any; formState: { errors: any; }; } {
-//     throw new Error("Function not implemented.");
-// }
-

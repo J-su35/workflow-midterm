@@ -1,4 +1,3 @@
-
 import { BudgetRequest } from "../models/budget-request";
 import { formatDecimal } from "../lib/format-decimal";
 
@@ -18,7 +17,6 @@ function BudgetCard({ title, value }: BudgetCardProps) {
 
 interface BudgetPanelProps {
   items: BudgetRequest[]; //before
-  // items: BudgetRequest; //after
 }
 
 // function BudgetPanel({ items }: BudgetPanelProps) {

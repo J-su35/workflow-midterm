@@ -33,11 +33,9 @@ function BudgetRequestDataTable({ items }: BudgetRequestDataTableProps) {
         {items.map((request) => (
           <tr key={request.id}>
             <td className="px-6 py-4 whitespace-nowrap">
-              {/* <button className="text-gray-600 hover:text-blue-600"> */}
               <Link href={`/edit/${request.id}`} passHref>
                 <Pencil className="h-4 w-4" />
               </Link>
-              {/* </button> */}
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
               <button className="text-gray-600 hover:text-blue-600">
