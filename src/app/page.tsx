@@ -62,7 +62,7 @@ function Home() {
       id: nextId++,
       title: newRequest.title,
       amount: newRequest.amount,
-      quantity: 1,
+      quantity: newRequest.quantity,
       status: "APPROVED",
     });
 
@@ -91,6 +91,7 @@ function Home() {
               <input
                 id="title"
                 name="title"
+                placeholder="Requested Items"
                 value={newRequest.title}
                 onChange={updateField}
                 className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -104,6 +105,18 @@ function Home() {
                 name="amount"
                 type="number"
                 value={newRequest.amount}
+                onChange={updateField}
+                className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+
+              <label htmlFor="quantity" className="w-1/6 text-left font-medium">
+                Quantity:
+              </label>
+              <input
+                id="quantity"
+                name="quantity"
+                type="number"
+                value={newRequest.quantity}
                 onChange={updateField}
                 className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
