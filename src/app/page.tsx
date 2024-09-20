@@ -107,6 +107,14 @@ function Home() {
       quantity: 1,
       status: "APPROVED",
     });
+
+    setNewRequest({
+      id: 0,
+      title: "",
+      amount: 0,
+      quantity: 1,
+      status: "PENDING",
+    });
   };
 
   // const { title, quantity, amount } = useContext(ItemInfoContext);
@@ -119,7 +127,7 @@ function Home() {
         <div className="mt-4">
           <BudgetPanel items={budgetRequests}/>
         </div>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <div>
             Title:
             <input
@@ -138,7 +146,44 @@ function Home() {
             />
           </div>
           <button>Add</button>
-        </form>
+        </form> */}
+        <div className="py-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex items-center space-x-4">
+            <label htmlFor="title" className="w-1/6 text-left font-medium">
+              Title:
+            </label>
+            <input
+              id="title"
+              name="title"
+              value={newRequest.title}
+              onChange={updateField}
+              className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+
+            <label htmlFor="amount" className="w-1/6 text-left font-medium">
+              Amount:
+            </label>
+            <input
+              id="amount"
+              name="amount"
+              type="number"
+              value={newRequest.amount}
+              onChange={updateField}
+              className="w-5/6 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              >
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
         {/* <FormAddRequest addRequest={addRequest} /> */}
         <div className="mt-4">
           <BudgetRequestDataTable items={budgetRequests} />

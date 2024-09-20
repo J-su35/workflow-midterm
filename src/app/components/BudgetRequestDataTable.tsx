@@ -24,6 +24,15 @@ function BudgetRequestDataTable({ items }: BudgetRequestDataTableProps) {
           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Title
           </th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Amount
+          </th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Quantity
+          </th>
+          <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Status
+          </th>
           <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
             Budget
           </th>
@@ -34,7 +43,7 @@ function BudgetRequestDataTable({ items }: BudgetRequestDataTableProps) {
           <tr key={request.id}>
             <td className="px-6 py-4 whitespace-nowrap">
               {/* <button className="text-gray-600 hover:text-blue-600"> */}
-              <Link href={`/edit/${request.id}`} passHref>
+              <Link href={`/edit/${request.id}`} passHref className="text-gray-600 hover:text-orange-600">
                 <Pencil className="h-4 w-4" />
               </Link>
               {/* </button> */}
@@ -45,19 +54,31 @@ function BudgetRequestDataTable({ items }: BudgetRequestDataTableProps) {
               </button>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-              <button className="text-gray-600 hover:text-blue-600">
+              <button className="text-gray-600 hover:text-red-600">
                 <Trash2 className="h-4 w-4" />
               </button>
             </td>
             <td className="px-6 py-4 whitespace-nowrap text-right">
               {request.id}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
+            {/* <td className="px-6 py-4 whitespace-nowrap">
               <span className="font-bold">{request.title}</span> x{" "}
+              {request.quantity} Units
+            </td> */}
+            <td className="px-6 py-4 whitespace-nowrap font-bold">
+              {request.title}
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
+              {request.amount}
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
               {request.quantity} Units
             </td>
             <td className="px-6 py-4 whitespace-nowrap text-right">
-              {formatDecimal(request.amount)}
+              {request.status}
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap text-right">
+              {formatDecimal(request.amount * request.quantity)}
             </td>
           </tr>
         ))}
