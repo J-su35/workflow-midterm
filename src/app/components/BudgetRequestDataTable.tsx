@@ -59,10 +59,6 @@ function BudgetRequestDataTable({ items }: BudgetRequestDataTableProps) {
             <td className="px-6 py-4 whitespace-nowrap text-right">
               {request.id}
             </td>
-            {/* <td className="px-6 py-4 whitespace-nowrap">
-              <span className="font-bold">{request.title}</span> x{" "}
-              {request.quantity} Units
-            </td> */}
             <td className="px-6 py-4 whitespace-nowrap font-bold">
               {request.title}
             </td>
