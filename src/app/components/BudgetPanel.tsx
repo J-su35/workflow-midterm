@@ -17,10 +17,13 @@ function BudgetCard({ title, value }: BudgetCardProps) {
 }
 
 interface BudgetPanelProps {
-  items: BudgetRequest[];
+  items: BudgetRequest[]; //before
+  // items: BudgetRequest; //after
 }
 
+// function BudgetPanel({ items }: BudgetPanelProps) {
 function BudgetPanel({ items }: BudgetPanelProps) {
+  console.log(items)
   const total = 10_000;
   const usedBudget = items
     .filter((request) => request.status === "APPROVED")

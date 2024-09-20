@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { BudgetRequest } from "./models/budget-request";
 import { createBudgetItem, fetchBudgetItems } from "./services/budget-item";
+// import { ItemInfoContext } from "./layout";
 
 let nextId = 3;
 function Home() {
@@ -32,8 +33,8 @@ function Home() {
   //   //   status: "APPROVED",
   //   // },
   // ]);
-  const [budgetRequests, setBudgetRequests] = useState<BudgetRequest[]>([]);
-
+  const [budgetRequests, setBudgetRequests] = useState<BudgetRequest[]>([]);   //before
+  // const [budgetRequests, setBudgetRequests] = useState<BudgetRequest>();  
   // const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
   //   event.preventDefault()
   //   setBudgetRequests([
@@ -51,8 +52,8 @@ function Home() {
   //------------------------Get data---------------------------------
   useEffect(() => {
     fetchBudgetItems().then((items) => setBudgetRequests(items)); //(a) ดึงข้อมูลมาแสดงผล เหมือน (b) recommend
+    // fetchBudgetItems().then((items) => console.log(items)); //log
   }, []);
-
   // const addRequest = (newRequest: BudgetRequest) => {
   //   setBudgetRequests([...budgetRequests, newRequest]);
   // };
@@ -83,7 +84,7 @@ function Home() {
     title: "",
     amount: 0,
     quantity: 1,
-    status: "APPROVED",
+    status: "PENDING",
   });
 
   const updateField = (event: ChangeEvent<HTMLInputElement>) => {
@@ -107,6 +108,9 @@ function Home() {
       status: "APPROVED",
     });
   };
+
+  // const { title, quantity, amount } = useContext(ItemInfoContext);
+  // console.log(title, quantity, amount)
 
   return (
     <div>

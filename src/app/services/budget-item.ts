@@ -4,13 +4,29 @@ import { BudgetRequest } from "../models/budget-request";
 
 // ---------------Get-----------------------
 interface FetchBudgetItemsResponse {
-  data: BudgetRequest[];
+  data: BudgetRequest[]; //before
+  // data: BudgetRequest; //after
 }
 
-export const fetchBudgetItems = async (): Promise<BudgetRequest[]> => {
-  const response = await api.get<FetchBudgetItemsResponse>("/items");
+export const fetchBudgetItems = async (): Promise<BudgetRequest[]> => {  //before
+// export const fetchBudgetItems = async (): Promise<BudgetRequest> => {
+// export const fetchBudgetItems = async (): Promise<FetchBudgetItemsResponse> => {  //after1
+const response = await api.get<FetchBudgetItemsResponse>("/items"); //before
+  // const response = await api.get<BudgetRequest>("/items"); 
+  console.log(response)
+  console.log("Hi")
+  console.log(response.data)
+  // const data = response.data
   const { data } = response.data;
-  return data;
+  // const { data } = response;
+  console.log("Hey")
+  console.log(data)
+  console.log("Shit")
+  // console.log(data.data) //don't work undefined
+  // const data = response.data;
+  // return data; //original
+  // return data
+  return data
 };
 
 // ---------------Post----------------------
